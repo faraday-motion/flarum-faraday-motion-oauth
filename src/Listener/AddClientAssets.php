@@ -23,7 +23,7 @@ class AddClientAssets
 		if ($event->isForum()) {
 			$event->addAssets([
 				__DIR__.'/../../js/forum/dist/extension.js',
-				//__DIR__.'/../../js/forum/dist/extension.less'
+				__DIR__.'/../../less/forum/extension.less'
 			]);
 			$event->addBootstrapper('flarum/auth/faraday-motion/main');
 		}

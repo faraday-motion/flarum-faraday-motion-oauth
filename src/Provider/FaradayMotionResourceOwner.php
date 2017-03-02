@@ -1,7 +1,8 @@
 <?php
 
-namespace  Flarum\Auth\FaradayMotion\Provider;
+namespace Flarum\Auth\FaradayMotion\Provider;
 
+use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use League\OAuth2\Client\Tool\ArrayAccessorTrait;
 
 class FaradayMotionResourceOwner implements ResourceOwnerInterface
@@ -69,7 +70,17 @@ class FaradayMotionResourceOwner implements ResourceOwnerInterface
 	 */
 	public function getNickname()
 	{
-		return $this->getValueByKey($this->response, 'login'); //TODO:: See if we need to have nicknames.
+		return $this->getValueByKey($this->response, 'name');
+	}	
+
+	/**
+	 * Get resource owner bio
+	 *
+	 * @return  string|null
+	 */
+	public function getAbout()
+	{
+		return $this->getValueByKey($this->response, 'about');
 	}
 
     /**

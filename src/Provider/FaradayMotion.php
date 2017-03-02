@@ -1,11 +1,12 @@
 <?php 
 
-namespace  Flarum\Auth\FaradayMotion\Provider;
+namespace Flarum\Auth\FaradayMotion\Provider;
 
-//TODO: Port this one.
-use Flarum\Auth\FaradayMotion\Provider\Exception\FaradayMotionIdentityProviderException;
+use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
+use Flarum\Auth\FaradayMotion\Provider\FaradayMotionResourceOwner;
+use Flarum\Auth\FaradayMotion\Provider\Exception\FaradayMotionIdentityProviderException;
 use Psr\Http\Message\ResponseInterface;
 
 class FaradayMotion extends AbstractProvider
@@ -16,14 +17,14 @@ class FaradayMotion extends AbstractProvider
 	 * Domain
 	 * @var  string
 	 */
-	public $domain = 'http://localhost:4848'; // TODO:: Export this to an env var.
+	public $domain = 'http://auth.faradaymotion.com.dev:4848'; // TODO:: Export this to an env var.
 
 	/**
 	 * Api domain
 	 *
 	 * @var  string
 	 */
-	public $apiDomain = 'http://localhost:4848'; // TODO:: See if we need this at all.
+	public $apiDomain = 'http://auth.faradaymotion.com.dev:4848/api'; // API BASE URL
 
 	/**
 	 * Get authorization url to begin OAuth flow
@@ -32,8 +33,21 @@ class FaradayMotion extends AbstractProvider
 	 */
 	public function getBaseAuthorizationUrl()
 	{
-		return $this->domain.'/login/oauth/authorize';
+		return $this->domain.'/oauth/authorize';
 	}
+
+
+    /**
+     * Get access token url to retrieve token
+     *
+     * @param  array $params
+     *
+     * @return string
+     */
+    public function getBaseAccessTokenUrl(array $params)
+    {
+       return $this->domain.'/oauth/token';
+    }
 
 	/**
 	 * Get access token url to retrieve token
@@ -44,11 +58,7 @@ class FaradayMotion extends AbstractProvider
 	 */
 	public function getResourceOwnerDetailsUrl(AccessToken $token)
 	{
-		if ($this->domain === 'http://localhost:4848') {
-			return $this->apiDomain.'user';
-		}
-
-		return $this->domain.'api/v1/user';
+		return $this->apiDomain.'/user';
 	}
 
 	/**
@@ -96,4 +106,11 @@ class FaradayMotion extends AbstractProvider
 
 		return $user->setDomain($this->domain);
 	}
+
+
+	public function getAccessToken($grant = 'password', array $params = [])
+    {
+
+        return parent::getAccessToken($grant, $params);
+    }
 }

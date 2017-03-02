@@ -74,7 +74,7 @@ System.register('flarum/auth/faraday-motion/main', ['flarum/app', 'flarum/auth/f
 		execute: function () {
 
 			app.initializers.add('flarum-auth-faraday-motion', function () {
-				app.extensionSettings['flarum-auth-faraday-motion'] = function () {
+				app.extensionSettings['faraday-motion-faraday-motion-oauth'] = function () {
 					return app.modal.show(new FaradayMotionSettingsModal());
 				};
 			});

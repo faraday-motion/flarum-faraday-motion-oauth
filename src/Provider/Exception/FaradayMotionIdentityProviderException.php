@@ -1,7 +1,9 @@
 <?php 
 
-namespace League\OAuth2\Client\Provider\Exception;
+//namespace League\OAuth2\Client\Provider\Exception;
+namespace Flarum\Auth\FaradayMotion\Provider\Exception;
 
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use Psr\Http\Message\ResponseInterface;
 
 class FaradayMotionIdentityProviderException extends IdentityProviderException
