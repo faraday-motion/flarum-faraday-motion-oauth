@@ -17,14 +17,16 @@ class FaradayMotion extends AbstractProvider
 	 * Domain
 	 * @var  string
 	 */
-	public $domain = 'http://auth.faradaymotion.com.dev:4848'; // TODO:: Export this to an env var.
+	public $domain = 'http://auth.faradaymotion.com'; // TODO:: Export this to an env var.
+//	public $domain = 'http://auth.faradaymotion.com.dev:4848'; // TODO:: Export this to an env var.
 
 	/**
 	 * Api domain
 	 *
 	 * @var  string
 	 */
-	public $apiDomain = 'http://auth.faradaymotion.com.dev:4848/api'; // API BASE URL
+	public $apiDomain = 'http://auth.faradaymotion.com/api'; // API BASE URL
+//	public $apiDomain = 'http://auth.faradaymotion.com.dev:4848/api'; // API BASE URL
 
 	/**
 	 * Get authorization url to begin OAuth flow

@@ -2,6 +2,7 @@
     "name": "faraday-motion/flarum-faraday-motion-oauth",
     "description": "This allows a user to authenitcate to flarum with a Faraday Motion account",
     "type": "flarum-extension",
+    "version": "master",
     "require": {
         "flarum/core": "^0.1.0-beta.6",
         "league/oauth2-client": "~1.4"
