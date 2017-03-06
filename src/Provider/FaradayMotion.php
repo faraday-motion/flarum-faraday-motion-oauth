@@ -8,25 +8,29 @@ use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use Flarum\Auth\FaradayMotion\Provider\FaradayMotionResourceOwner;
 use Flarum\Auth\FaradayMotion\Provider\Exception\FaradayMotionIdentityProviderException;
 use Psr\Http\Message\ResponseInterface;
+use Flarum\Settings\SettingsRepositoryInterface;
 
 class FaradayMotion extends AbstractProvider
 {
 	use BearerAuthorizationTrait;
 
+
+	protected $settings; 
+
 	/**
 	 * Domain
 	 * @var  string
 	 */
-	public $domain = 'http://auth.faradaymotion.com'; // TODO:: Export this to an env var.
-//	public $domain = 'http://auth.faradaymotion.com.dev:4848'; // TODO:: Export this to an env var.
+
+	public $domain;
 
 	/**
 	 * Api domain
 	 *
 	 * @var  string
 	 */
-	public $apiDomain = 'http://auth.faradaymotion.com/api'; // API BASE URL
-//	public $apiDomain = 'http://auth.faradaymotion.com.dev:4848/api'; // API BASE URL
+
+	public $apiDomain;
 
 	/**
 	 * Get authorization url to begin OAuth flow

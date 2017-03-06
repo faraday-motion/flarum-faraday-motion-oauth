@@ -25,7 +25,7 @@ System.register('flarum/auth/faraday-motion/components/FaradayMotionSettingsModa
 				}, {
 					key: 'title',
 					value: function title() {
-						return "FM Login";
+						return "oAuth 2 Server Config";
 						//return app.translator.trans('flarum-auth-faraday-motion.admin.faraday_motion_settings.title');
 					}
 				}, {
@@ -37,7 +37,25 @@ System.register('flarum/auth/faraday-motion/components/FaradayMotionSettingsModa
 							m(
 								'label',
 								null,
-								'Client Id'
+								'oAuth Url'
+							),
+							m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-faraday-motion.oauth_url') })
+						), m(
+							'div',
+							{ className: 'Form-group' },
+							m(
+								'label',
+								null,
+								'oAuth API Url'
+							),
+							m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-faraday-motion.oauth_api_url') })
+						), m(
+							'div',
+							{ className: 'Form-group' },
+							m(
+								'label',
+								null,
+								'Client Ids'
 							),
 							m('input', { className: 'FormControl', bidi: this.setting('flarum-auth-faraday-motion.client_id') })
 						), m(

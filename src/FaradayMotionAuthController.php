@@ -31,9 +31,11 @@ class FaradayMotionAuthController extends AbstractOAuth2Controller
 	protected function getProvider($redirectUri)
 	{
 		return new FaradayMotion([
-			'clientId' 	=> $this->settings->get('flarum-auth-faraday-motion.client_id'),
-			'clientSecret' => $this->settings->get('flarum-auth-faraday-motion.client_secret'),
-			'redirectUri'	=> $redirectUri
+			'clientId' 		=> $this->settings->get('flarum-auth-faraday-motion.client_id'),
+			'clientSecret' 	=> $this->settings->get('flarum-auth-faraday-motion.client_secret'),
+			'redirectUri'	=> $redirectUri,
+			'domain' 		=> $this->settings->get('flarum-auth-faraday-motion.oauth_url'),
+			'apiDomain' 	=> $this->settings->get('flarum-auth-faraday-motion.oauth_api_url')
 		]);
 	}
 

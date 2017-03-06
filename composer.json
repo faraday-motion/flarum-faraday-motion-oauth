@@ -14,9 +14,9 @@
     },
     "extra": {
         "flarum-extension": {
-            "title": "FM oAuth",
+            "title": "Faraday Motion oAuth",
             "icon" : {
-                "name" : "FM oAuth",
+                "name" : "Faraday Motion oAuth",
                 "backgroundColor" : "#74e409",
                 "color" : "#eee"
             }
