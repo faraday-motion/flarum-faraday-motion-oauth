@@ -44,15 +44,15 @@ app.initializers.add('flarum-auth-faraday-motion', () => {
  }
 
   function removeLoginForm(){
-    // this.content = function() {
-    //   return [
-    //       <div className="Modal-body">
-    //         <LogInButtons/>
-    //       </div>,
-    //       <div className="Modal-footer">
-    //       </div>
-    //   ];
-    // }
+    this.content = function() {
+      return [
+          <div className="Modal-body">
+            <LogInButtons/>
+          </div>,
+          <div className="Modal-footer">
+          </div>
+      ];
+    }
   } 
 
   function removeProfileActions(items) {
