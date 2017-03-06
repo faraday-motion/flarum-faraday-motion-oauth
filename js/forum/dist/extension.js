@@ -102,13 +102,15 @@ System.register('flarum/auth/faraday-motion/main', ['flarum/extend', 'flarum/app
         }
 
         function removeLoginForm() {
-          this.content = function () {
-            return [m(
-              'div',
-              { className: 'Modal-body' },
-              m(LogInButtons, null)
-            ), m('div', { className: 'Modal-footer' })];
-          };
+          // this.content = function() {
+          //   return [
+          //       <div className="Modal-body">
+          //         <LogInButtons/>
+          //       </div>,
+          //       <div className="Modal-footer">
+          //       </div>
+          //   ];
+          // }
         }
 
         function removeProfileActions(items) {
